@@ -1,0 +1,5 @@
+.DS_Store
+.publish
+dist
+models
+node_modules

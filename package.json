@@ -1,0 +1,42 @@
+{
+  "name": "threejs-viewer",
+  "version": "1.0.0",
+  "description": "Exploring three.js as Calisphere's 3D object viewer",
+  "main": "./js/index.js",
+  "scripts": {
+    "start": "run-p copy-models parcel-dev watch --silent",
+    "build": "run-s clean copy-models parcel-build --silent",
+    "copy-models": "echo Copying model files from /models to /dist/models ... && copyfiles --error models/**/* dist && echo done.",
+    "clean": "del dist --silent",
+    "watch": "onchange -i js/*.js -- npm run jslint",
+    "parcel-dev": "parcel index.html --no-cache",
+    "parcel-build": "parcel build index.html --public-url . --no-cache --no-source-maps",
+    "jslint": "standard js/*.js --verbose | snazzy || exit 0",
+    "jsfix": "standard js/*.js --fix --verbose | snazzy || exit 0 && echo Standard did not find any javascript issues to fix",
+    "serve": "http-server -c-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cdlib/threejs-viewer.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/cdlib/threejs-viewer/issues"
+  },
+  "homepage": "https://github.com/cdlib/threejs-viewer#readme",
+  "devDependencies": {
+    "copyfiles": "^2.3.0",
+    "del-cli": "^3.0.1",
+    "gh-pages": "^3.1.0",
+    "http-server": "^0.12.3",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.0.2",
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.26.9",
+    "snazzy": "^8.0.0",
+    "standard": "^14.3.4"
+  },
+  "dependencies": {
+    "three": "^0.117.1"
+  }
+}

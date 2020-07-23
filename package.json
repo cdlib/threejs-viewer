@@ -12,7 +12,8 @@
     "parcel-dev": "parcel index.html --no-cache",
     "parcel-build": "parcel build index.html --public-url . --no-cache --no-source-maps",
     "jslint": "standard js/*.js --verbose | snazzy || exit 0",
-    "jsfix": "standard js/*.js --fix --verbose | snazzy || exit 0 && echo Standard did not find any javascript issues to fix"
+    "jsfix": "standard js/*.js --fix --verbose | snazzy || exit 0 && echo Standard did not find any javascript issues to fix",
+    "publish": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",

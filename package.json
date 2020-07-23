@@ -1,7 +1,7 @@
 {
   "name": "threejs-viewer",
   "version": "1.0.0",
-  "description": "Exploring three.js as Calisphere's 3D object viewer",
+  "description": "Experiments with using three.js as a object viewer",
   "main": "./js/index.js",
   "scripts": {
     "start": "run-p copy-models parcel-dev watch --silent",

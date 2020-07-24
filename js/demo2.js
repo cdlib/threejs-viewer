@@ -5,11 +5,19 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 function init () {
   /* Test Models. Download from URLs below into ./models */
 
-  // Avocado GLTF downloaded from: https://poly.google.com/view/196c4VRe6Ch
-  const model = 'models/avocado/Avocado.gltf'
+  const urlParams = new URLSearchParams(window.location.search)
 
-  // George Washington statue downloaded from: https://3d.si.edu/object/3d/george-washington:789cf90a-4387-4ac1-9e96-c7d6a7b9d26f
-  // const model = 'models/smithsonian/george-washington-greenough-statue-(1840)-150k-4096-web.gltf'
+  let model = ''
+
+  if (urlParams.get('model') === '1') {
+    // Avocado GLTF downloaded from: https://poly.google.com/view/196c4VRe6Ch
+    model = 'models/avocado/Avocado.gltf'
+  } else if (urlParams.get('model') === '2') {
+    // George Washington statue downloaded from: https://3d.si.edu/object/3d/george-washington:789cf90a-4387-4ac1-9e96-c7d6a7b9d26f
+    model = 'models/smithsonian/george-washington-greenough-statue-(1840)-150k-4096-web.gltf'
+  } else {
+    document.querySelector('.container').innerText = 'Invalid model parameter or number in URL query string.'
+  }
 
   /* Camera, Scene, and Renderer */
 

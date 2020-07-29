@@ -138,6 +138,8 @@ function init () {
     controls.target.copy(boxCenter)
 
     controls.update()
+
+    controls.saveState()
   })
 
   /* Fullscreen Control */
@@ -163,6 +165,14 @@ function init () {
     } else if (elFullscreen.msRequestFullscreen) {
       elFullscreen.msRequestFullscreen()
     }
+  })
+
+  /* Reset Camera Control */
+
+  const buttonResetCamera = document.querySelector('#resetcamera')
+
+  buttonResetCamera.addEventListener('click', function () {
+    controls.reset()
   })
 }
 

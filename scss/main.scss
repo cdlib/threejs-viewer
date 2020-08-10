@@ -10,6 +10,24 @@ body {
 header {
   border: 5px solid orange;
   padding: 10px;
+
+  ul {
+    display: flex;
+    padding: 0;
+  }
+
+  li {
+    list-style-type: none;
+
+    &:not(:first-child) {
+      padding-left: .5rem;
+    }
+
+    &:not(:last-child) {
+      padding-right: .5rem;
+      border-right: 1px solid black;
+    }
+  }
 }
 
 .intro {

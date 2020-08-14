@@ -117,8 +117,8 @@ function init () {
     const root = gltf.scene
 
     // rotate object a little off X and Y center:
-    root.rotateX(Math.PI * 0.05)
-    root.rotateY(Math.PI * -0.2)
+    root.rotateX(5 * THREE.Math.DEG2RAD)
+    root.rotateY(-30 * THREE.Math.DEG2RAD)
 
     scene.add(root)
 
@@ -137,6 +137,7 @@ function init () {
     buttonReset.addEventListener('click', function () {
       cameraControls.rotateTo(0 * THREE.Math.DEG2RAD, 90 * THREE.Math.DEG2RAD, true)
       cameraControls.fitTo(box, true)
+      removeGrids()
     })
 
     /* Keyboard Controls */
@@ -191,6 +192,65 @@ function init () {
     debugBoxSize.innerText = boxSize.toFixed(3)
     debugCameraNear.innerText = camera.near.toFixed(3)
     debugCameraFar.innerText = camera.far.toFixed(3)
+
+    /* Measurement Grid */
+
+    const boxYHalfLength = Math.round(box.getSize(new THREE.Vector3()).x / 2)
+    const boxZHalfLength = Math.round(box.getSize(new THREE.Vector3()).z / 2)
+    const gridOptionsButton = document.querySelector('#gridoptionsbutton')
+    const gridOptions = document.querySelector('#gridoptions')
+    const gridXRadioButton = document.querySelector('#gridxbutton')
+    const gridYRadioButton = document.querySelector('#gridybutton')
+
+    const gridX = new THREE.GridHelper(boxSize, 10, 0x000000, 0x000000)
+    gridX.position.y = -boxYHalfLength
+    gridX.rotateX(5 * THREE.Math.DEG2RAD)
+    gridX.rotateY(-30 * THREE.Math.DEG2RAD)
+
+    const gridY = new THREE.GridHelper(boxSize, 10, 0x000000, 0x000000)
+    gridY.position.z = -boxZHalfLength
+    gridY.rotateX(95 * THREE.Math.DEG2RAD)
+    gridY.rotateZ(30 * THREE.Math.DEG2RAD)
+
+    function gridToggle () {
+      if (gridXRadioButton.checked === true) {
+        scene.add(gridX)
+        scene.remove(gridY)
+      }
+      if (gridYRadioButton.checked === true) {
+        scene.add(gridY)
+        scene.remove(gridX)
+      }
+      renderer.render(scene, camera)
+    }
+
+    function removeGrids () {
+      scene.remove(gridX)
+      scene.remove(gridY)
+      gridOptionsButton.checked = false
+      gridOptions.hidden = true
+    }
+
+    gridOptionsButton.checked = false
+
+    gridOptionsButton.addEventListener('change', function () {
+      if (gridOptions.hidden === true) {
+        gridToggle()
+        gridOptions.hidden = false
+      } else {
+        removeGrids()
+      }
+      resizeContainer()
+    })
+
+    gridXRadioButton.addEventListener('change', gridToggle)
+    gridYRadioButton.addEventListener('change', gridToggle)
+
+    const gridKeyIn = document.querySelector('#gridkeyin span')
+    const gridKeyFt = document.querySelector('#gridkeyft span')
+
+    gridKeyIn.innerText = (boxSize / 10 * 39.37).toFixed(2) // meters to inches
+    gridKeyFt.innerText = (boxSize / 10 * 3.281).toFixed(2) // meters to feet
   })
 
   /* Model Loading Status */

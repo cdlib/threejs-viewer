@@ -45,10 +45,20 @@ header {
   background-image: radial-gradient(#fff, #ccc);
   border: 5px solid green;
 
+  .loadstatus {
+    display: grid;
+    position: absolute;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
   canvas {
     position: absolute;
     width: 100%;
     height: 100%;
+    z-index: 2;
   }
 }
 
@@ -101,5 +111,9 @@ fieldset {
 }
 
 #progressbar {
-  width: 100%;
+  width: 33%;
+}
+
+#loaderror {
+  font-weight: bold;
 }

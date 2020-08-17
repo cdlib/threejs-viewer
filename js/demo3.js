@@ -68,7 +68,6 @@ function init () {
 
     if (hasControlsUpdated) {
       renderer.render(scene, camera)
-      console.log('model rendered')
     }
   })()
 
@@ -256,15 +255,21 @@ function init () {
   /* Model Loading Status */
 
   const loadingProgress = document.querySelector('#progressbar')
+  const loadingError = document.querySelector('#loaderror')
 
   THREE.DefaultLoadingManager.onProgress = function (url, itemsLoaded, itemsTotal) {
+    loadingProgress.hidden = false
     const loadValue = Math.round(itemsLoaded / itemsTotal * 100)
     loadingProgress.value = loadValue
     loadingProgress.innerText = 'Model ' + loadValue + '% loaded'
   }
 
-  THREE.DefaultLoadingManager.onError = function (url) {
-    console.log('There was an error loading ' + url)
+  THREE.DefaultLoadingManager.onLoad = function () {
+    loadingProgress.hidden = true
+  }
+
+  THREE.DefaultLoadingManager.onError = function () {
+    loadingError.hidden = false
   }
 
   /* Directions Menu */

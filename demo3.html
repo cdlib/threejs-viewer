@@ -18,9 +18,12 @@
     <h2>Rendering a GLTF Model, Version 2</h2>
   </header>
   <div id="demo3" class="container">
+    <div class="loadstatus">
+      <progress id="progressbar" value="0" max="100" hidden></progress>
+      <div id="loaderror" hidden>The model could not be loaded.</div>
+    </div>
     <!-- load the <canvas> here -->
   </div>
-  <progress id="progressbar" value="0" max="100"></progress>
   <div class="controls">
     <button id="fullscreen">Fullscreen</button>
     <label for="intensity">Light Intensity:</label>

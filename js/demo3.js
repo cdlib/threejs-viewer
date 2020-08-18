@@ -124,10 +124,6 @@ function init () {
   gltfLoader.load(model, (gltf) => {
     const root = gltf.scene
 
-    // rotate object a little off X and Y center:
-    root.rotateX(5 * THREE.Math.DEG2RAD)
-    root.rotateY(-30 * THREE.Math.DEG2RAD)
-
     scene.add(root)
 
     const box = new THREE.Box3().setFromObject(root)
@@ -139,13 +135,16 @@ function init () {
     /* Camera Controls */
 
     cameraControls.fitTo(box)
+    cameraControls.rotateTo(30 * THREE.Math.DEG2RAD, 80 * THREE.Math.DEG2RAD)
 
     const buttonReset = document.querySelector('#resetcamera')
 
     buttonReset.addEventListener('click', function () {
       cameraControls.rotateTo(0 * THREE.Math.DEG2RAD, 90 * THREE.Math.DEG2RAD, true)
       cameraControls.fitTo(box, true)
+      cameraControls.rotateTo(30 * THREE.Math.DEG2RAD, 80 * THREE.Math.DEG2RAD, true)
       removeGrids()
+      resizeContainer()
     })
 
     /* Keyboard Controls */
@@ -215,7 +214,7 @@ function init () {
       gridKeyValue.innerText = 'unknown'
     }
 
-    const boxYHalfLength = Math.round(box.getSize(new THREE.Vector3()).x / 2)
+    const boxYHalfLength = Math.round(box.getSize(new THREE.Vector3()).y / 2)
     const boxZHalfLength = Math.round(box.getSize(new THREE.Vector3()).z / 2)
     const gridOptionsButton = document.querySelector('#gridoptionsbutton')
     const gridOptions = document.querySelector('#gridoptions')
@@ -224,13 +223,10 @@ function init () {
 
     const gridX = new THREE.GridHelper(boxSize, 10, 0x000000, 0x000000)
     gridX.position.y = -boxYHalfLength
-    gridX.rotateX(5 * THREE.Math.DEG2RAD)
-    gridX.rotateY(-30 * THREE.Math.DEG2RAD)
 
     const gridY = new THREE.GridHelper(boxSize, 10, 0x000000, 0x000000)
     gridY.position.z = -boxZHalfLength
-    gridY.rotateX(95 * THREE.Math.DEG2RAD)
-    gridY.rotateZ(30 * THREE.Math.DEG2RAD)
+    gridY.rotateX(90 * THREE.Math.DEG2RAD)
 
     function gridToggle () {
       if (gridXRadioButton.checked === true) {
@@ -257,6 +253,7 @@ function init () {
       if (gridOptions.hidden === true) {
         gridToggle()
         gridOptions.hidden = false
+        cameraControls.rotateTo(0 * THREE.Math.DEG2RAD, 90 * THREE.Math.DEG2RAD, true)
       } else {
         removeGrids()
       }

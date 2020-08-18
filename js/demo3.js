@@ -203,6 +203,18 @@ function init () {
 
     /* Measurement Grid */
 
+    const gridKeyValue = document.querySelector('#gridkeyvalue output')
+
+    if (urlParams.get('scale') === 'mm') {
+      gridKeyValue.innerText = (boxSize / 10 / 10).toFixed(2) // millimeters to centimeters
+    } else if (urlParams.get('scale') === 'cm') {
+      gridKeyValue.innerText = (boxSize / 10).toFixed(2) // centimeters to centimeters
+    } else if (urlParams.get('scale') === 'm') {
+      gridKeyValue.innerText = (boxSize / 10 * 10).toFixed(2) // meters to centimeters
+    } else {
+      gridKeyValue.innerText = 'unknown'
+    }
+
     const boxYHalfLength = Math.round(box.getSize(new THREE.Vector3()).x / 2)
     const boxZHalfLength = Math.round(box.getSize(new THREE.Vector3()).z / 2)
     const gridOptionsButton = document.querySelector('#gridoptionsbutton')
@@ -253,12 +265,6 @@ function init () {
 
     gridXRadioButton.addEventListener('change', gridToggle)
     gridYRadioButton.addEventListener('change', gridToggle)
-
-    const gridKeyIn = document.querySelector('#gridkeyin span')
-    const gridKeyFt = document.querySelector('#gridkeyft span')
-
-    gridKeyIn.innerText = (boxSize / 10 * 39.37).toFixed(2) // meters to inches
-    gridKeyFt.innerText = (boxSize / 10 * 3.281).toFixed(2) // meters to feet
   })
 
   /* Model Loading Status */

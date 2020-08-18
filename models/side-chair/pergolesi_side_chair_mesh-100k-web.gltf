@@ -1,0 +1,142 @@
+{
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 90338,
+      "max": [
+        23.8496952056885,
+        59.856273651123,
+        20.4388236999512
+      ],
+      "min": [
+        -22.4289951324463,
+        -40.0822067260742,
+        -22.0219993591309
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 90338,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 90338,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5125,
+      "count": 300426,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "generator": "MeshSmith mesh conversion tool",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 1084056,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 1084056,
+      "byteOffset": 1084056,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 722704,
+      "byteOffset": 2168112,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 1201704,
+      "byteOffset": 2890816,
+      "target": 34963
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 4092520,
+      "uri": "pergolesi_side_chair_mesh-100k-web.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "pergolesi_side_chair_diffuse-100k.jpg"
+    },
+    {
+      "uri": "pergolesi_side_chair_occlusion-100k.jpg"
+    },
+    {
+      "uri": "pergolesi_side_chair_normal-100k.jpg"
+    }
+  ],
+  "materials": [
+    {
+      "name": "default",
+      "normalTexture": {
+        "index": 2
+      },
+      "occlusionTexture": {
+        "index": 1
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicFactor": 0.100000001490116,
+        "roughnessFactor": 0.800000011920929
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "source": 0
+    },
+    {
+      "source": 1
+    },
+    {
+      "source": 2
+    }
+  ]
+}

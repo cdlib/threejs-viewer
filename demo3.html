@@ -30,7 +30,20 @@
     <input type="range" id="intensity" name="intensity" min="15" max="35" step="0.1" value="25">
     <button id="resetcamera">Reset</button>
     <button id="toggledirections" aria-expanded="true" hidden>Show how to move object</button>
-    <div class="measurementgrid">
+    <div id="modelsize" class="modelsize">
+      <span id="sizelabel">Size:</span>
+      <span id="modelwidth">width: <output></output>;</span>
+      <span id="modelheight">height: <output></output>;</span>
+      <span id="modeldepth">depth: <output></output></span>
+      <label for="modelscale">Scale:</label>
+      <select id="modelselect">
+        <option value="mm">millimeters</option>
+        <option value="cm">centimeters</option>
+        <option value="in">inches</option>
+        <option value="ft">feet</option>
+        <option value="yd">yards</option>
+        <option value="m">meters</option>
+      </select>
       <label for="gridoptionsbutton">Show Measurement Grid:</label>
       <input id="gridoptionsbutton" type="checkbox">
       <fieldset id="gridoptions" hidden>
@@ -39,7 +52,7 @@
         <input id="gridybutton" type="radio" name="gridtype">
         <label for="gridybutton">Show Grid Y Axis</label>
         <div class="measurementkey">
-          <span id="gridkeyvalue">One square = <output></output> centimeters</span>
+          <span id="gridkey">One square = <output></output></span>
         </div>
       </fieldset>
     </div>

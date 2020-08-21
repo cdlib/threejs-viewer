@@ -71,7 +71,8 @@ header {
   display: none !important;
 }
 
-label {
+label,
+#sizelabel {
   font-weight: bold;
 }
 
@@ -81,7 +82,7 @@ label {
   border-top: 5px solid blue;
 }
 
-.measurementgrid,
+.modelsize,
 .measurementkey {
   margin-top: 10px;
 }

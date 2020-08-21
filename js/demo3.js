@@ -200,31 +200,120 @@ function init () {
     debugCameraNear.innerText = camera.near.toFixed(3)
     debugCameraFar.innerText = camera.far.toFixed(3)
 
-    /* Measurement Grid */
+    /* Model Scale and Measurement */
 
-    const gridKeyValue = document.querySelector('#gridkeyvalue output')
+    const boxXLength = box.getSize(new THREE.Vector3()).x
+    const boxYLength = box.getSize(new THREE.Vector3()).y
+    const boxZLength = box.getSize(new THREE.Vector3()).z
+
+    const modelSize = document.querySelector('#modelsize')
+    const modelSelect = document.querySelector('#modelselect')
+    const modelWidth = document.querySelector('#modelwidth output')
+    const modelHeight = document.querySelector('#modelheight output')
+    const modelDepth = document.querySelector('#modeldepth output')
+    const gridKey = document.querySelector('#gridkey output')
+
+    const gridDivisions = 10
+
+    let initialXLength = ''
+    let initialYLength = ''
+    let initialZLength = ''
+    let initialGridCellSize = boxSize / gridDivisions
+
+    // initially scale model default unit to meters (three.js standard unit):
 
     if (urlParams.get('scale') === 'mm') {
-      gridKeyValue.innerText = (boxSize / 10 / 10).toFixed(2) // millimeters to centimeters
+      modelSelect.options[0].selected = true
+      initialXLength = boxXLength / 1000
+      initialYLength = boxYLength / 1000
+      initialZLength = boxZLength / 1000
+      initialGridCellSize = initialGridCellSize / 1000
     } else if (urlParams.get('scale') === 'cm') {
-      gridKeyValue.innerText = (boxSize / 10).toFixed(2) // centimeters to centimeters
+      modelSelect.options[1].selected = true
+      initialXLength = boxXLength / 100
+      initialYLength = boxYLength / 100
+      initialZLength = boxZLength / 100
+      initialGridCellSize = initialGridCellSize / 100
     } else if (urlParams.get('scale') === 'm') {
-      gridKeyValue.innerText = (boxSize / 10 * 10).toFixed(2) // meters to centimeters
+      modelSelect.options[5].selected = true
+      initialXLength = boxXLength
+      initialYLength = boxYLength
+      initialZLength = boxZLength
     } else {
-      gridKeyValue.innerText = 'unknown'
+      // unknown or missing unit
+      modelSize.setAttribute('hidden', true)
     }
 
-    const boxYHalfLength = Math.round(box.getSize(new THREE.Vector3()).y / 2)
-    const boxZHalfLength = Math.round(box.getSize(new THREE.Vector3()).z / 2)
+    let finalXLength = ''
+    let finalYLength = ''
+    let finalZLength = ''
+    let finalGridCellSize = ''
+    let gridKeyLabel = ''
+
+    // rescale meters to final unit:
+
+    function scaleTo () {
+      if (modelSelect.value === 'mm') {
+        finalXLength = initialXLength * 1000
+        finalYLength = initialYLength * 1000
+        finalZLength = initialZLength * 1000
+        gridKeyLabel = 'millimeters'
+        finalGridCellSize = initialGridCellSize * 1000
+      } else if (modelSelect.value === 'cm') {
+        finalXLength = initialXLength * 100
+        finalYLength = initialYLength * 100
+        finalZLength = initialZLength * 100
+        gridKeyLabel = 'centimeters'
+        finalGridCellSize = initialGridCellSize * 100
+      } else if (modelSelect.value === 'in') {
+        finalXLength = initialXLength * 39.37
+        finalYLength = initialYLength * 39.37
+        finalZLength = initialZLength * 39.37
+        gridKeyLabel = 'inches'
+        finalGridCellSize = initialGridCellSize * 39.37
+      } else if (modelSelect.value === 'ft') {
+        finalXLength = initialXLength * 3.281
+        finalYLength = initialYLength * 3.281
+        finalZLength = initialZLength * 3.281
+        gridKeyLabel = 'feet'
+        finalGridCellSize = initialGridCellSize * 3.281
+      } else if (modelSelect.value === 'yd') {
+        finalXLength = initialXLength * 1.094
+        finalYLength = initialYLength * 1.094
+        finalZLength = initialZLength * 1.094
+        gridKeyLabel = 'yards'
+        finalGridCellSize = initialGridCellSize * 1.094
+      } else if (modelSelect.value === 'm') {
+        finalXLength = initialXLength
+        finalYLength = initialYLength
+        finalZLength = initialZLength
+        gridKeyLabel = 'meters'
+        finalGridCellSize = initialGridCellSize
+      }
+
+      modelWidth.innerText = finalXLength.toFixed(1)
+      modelHeight.innerText = finalYLength.toFixed(1)
+      modelDepth.innerText = finalZLength.toFixed(1)
+      gridKey.innerText = finalGridCellSize.toFixed(1) + ' ' + gridKeyLabel
+    }
+
+    scaleTo()
+
+    modelSelect.addEventListener('change', scaleTo)
+
+    /* Measurement Grid */
+
+    const boxYHalfLength = boxYLength / 2
+    const boxZHalfLength = boxZLength / 2
     const gridOptionsButton = document.querySelector('#gridoptionsbutton')
     const gridOptions = document.querySelector('#gridoptions')
     const gridXRadioButton = document.querySelector('#gridxbutton')
     const gridYRadioButton = document.querySelector('#gridybutton')
 
-    const gridX = new THREE.GridHelper(boxSize, 10, 0x000000, 0x000000)
+    const gridX = new THREE.GridHelper(boxSize, gridDivisions, 0x000000, 0x000000)
     gridX.position.y = -boxYHalfLength
 
-    const gridY = new THREE.GridHelper(boxSize, 10, 0x000000, 0x000000)
+    const gridY = new THREE.GridHelper(boxSize, gridDivisions, 0x000000, 0x000000)
     gridY.position.z = -boxZHalfLength
     gridY.rotateX(90 * THREE.Math.DEG2RAD)
 

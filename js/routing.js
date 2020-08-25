@@ -14,6 +14,9 @@ function router () {
     // Apolo Interior downloaded from: https://3d.si.edu/object/3d/command-module-apollo-11:d8c63e8a-4ebc-11ea-b77f-2e728ce88125
     modelUrl = 'models/apollo-interior/apollo_interior-medium_resolution.gltf'
   } else if (urlParams.get('model') === '5') {
+    // Space Shuttle downloaded from: https://3d.si.edu/object/3d/orbiter-space-shuttle-ov-103-discovery:d8c636ce-4ebc-11ea-b77f-2e728ce88125
+    modelUrl = 'models/space-shuttle/Orbiter_Space_Shuttle_OV-103_Discovery-150k-4096.gltf'
+  } else if (urlParams.get('model') === '6') {
     // Avocado GLTF downloaded from: https://poly.google.com/view/196c4VRe6Ch
     modelUrl = 'models/avocado/Avocado.gltf'
   } else {

@@ -334,6 +334,31 @@ function init () {
     gridYRadioButton.addEventListener('change', gridToggle)
   })
 
+  /* Fullscreen Control */
+
+  const elFullscreen = document.querySelector('.container canvas')
+
+  const buttonFullscreen = document.querySelector('#fullscreen')
+
+  buttonFullscreen.addEventListener('click', function () {
+    // Standard
+    if (elFullscreen.requestFullscreen) {
+      elFullscreen.requestFullscreen()
+
+    // Firefox
+    } else if (elFullscreen.mozRequestFullScreen) {
+      elFullscreen.mozRequestFullScreen()
+
+    // Chrome, Safari, and Opera
+    } else if (elFullscreen.webkitRequestFullscreen) {
+      elFullscreen.webkitRequestFullscreen()
+
+    // IE/Edge
+    } else if (elFullscreen.msRequestFullscreen) {
+      elFullscreen.msRequestFullscreen()
+    }
+  })
+
   /* Model Loading Status */
 
   const loadingProgress = document.querySelector('#progressbar')

@@ -361,18 +361,23 @@ function init () {
 
   /* Model Loading Status */
 
+  const loadingCanvas = document.querySelector('.container canvas')
   const loadingProgress = document.querySelector('#progressbar')
   const loadingError = document.querySelector('#loaderror')
 
   THREE.DefaultLoadingManager.onProgress = function (url, itemsLoaded, itemsTotal) {
     loadingProgress.hidden = false
+    loadingCanvas.hidden = true
     const loadValue = Math.round(itemsLoaded / itemsTotal * 100)
     loadingProgress.value = loadValue
     loadingProgress.innerText = 'Model ' + loadValue + '% loaded'
   }
 
   THREE.DefaultLoadingManager.onLoad = function () {
-    loadingProgress.hidden = true
+    setTimeout(function () {
+      loadingProgress.hidden = true
+      loadingCanvas.hidden = false
+    }, 1000)
   }
 
   THREE.DefaultLoadingManager.onError = function () {

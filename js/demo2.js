@@ -1,11 +1,10 @@
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
-import * as routing from './routing.js'
+import { modelMetadata, modelPath } from './routing.js'
 
 function init () {
-  routing.router()
-  const modelUrl = routing.modelUrl
+  modelMetadata()
 
   /* Camera, Scene, and Renderer */
 
@@ -103,7 +102,7 @@ function init () {
 
   const gltfLoader = new GLTFLoader()
 
-  gltfLoader.load(modelUrl, (gltf) => {
+  gltfLoader.load(modelPath, (gltf) => {
     const root = gltf.scene
 
     scene.add(root)

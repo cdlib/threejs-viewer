@@ -1,0 +1,56 @@
+{
+  "model": [
+    {
+      "name": "George Washington",
+      "institution": "Smithsonian 3D Program",
+      "path": "models/george-washington/george-washington-greenough-statue-(1840)-150k-4096-web.gltf",
+      "url": "https://3d.si.edu/object/3d/george-washington:789cf90a-4387-4ac1-9e96-c7d6a7b9d26f",
+      "dimensions": [
+        {
+          "width": "2096",
+          "height": "3454",
+          "depth": "2591"
+        }
+      ],
+      "scale": "mm"
+    },
+    {
+      "name": "Blue Crab",
+      "institution": "Smithsonian 3D Program",
+      "path": "models/blue-crab/blue-crab-150k-4096-web.gltf",
+      "url": "https://3d.si.edu/object/3d/blue-crab:b0bf6d44-af22-40dc-bd85-7d66255be4a7",
+      "dimensions": [],
+      "scale": "mm"
+    },
+    {
+      "name": "Side Chair",
+      "institution": "Smithsonian 3D Program",
+      "path": "models/side-chair/pergolesi_side_chair_mesh-100k-web.gltf",
+      "url": "https://3d.si.edu/object/3d/side-chair:57d30b85-3549-40dc-99c3-255249867462",
+      "dimensions": [],
+      "scale": "cm"
+    },
+    {
+      "name": "Space Shuttle Discovery",
+      "institution": "Smithsonian 3D Program",
+      "path": "models/space-shuttle/Orbiter_Space_Shuttle_OV-103_Discovery-150k-4096.gltf",
+      "url": "https://3d.si.edu/object/3d/orbiter-space-shuttle-ov-103-discovery:d8c636ce-4ebc-11ea-b77f-2e728ce88125",
+      "dimensions": [
+        {
+          "width": "24.314",
+          "height": "17.768",
+          "depth": "38.03"
+        }
+      ],
+      "scale": "m"
+    },
+    {
+      "name": "Avocado",
+      "institution": "Google Poly",
+      "path": "models/avocado/Avocado.gltf",
+      "url": "https://poly.google.com/view/196c4VRe6Ch",
+      "dimensions": [],
+      "scale": ""
+    }
+  ]
+}

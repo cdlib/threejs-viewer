@@ -2,16 +2,14 @@ import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import CameraControls from 'camera-controls'
 import * as holdEvent from 'hold-event'
-import * as routing from './routing.js'
+import { urlParams, modelMetadata, modelPath, modelScale } from './routing.js'
 
 CameraControls.install({ THREE: THREE })
 
 const container = document.querySelector('#demo3')
 
 function init () {
-  routing.router()
-  const urlParams = routing.urlParams
-  const modelUrl = routing.modelUrl
+  modelMetadata()
 
   /* Camera, Scene, and Renderer */
 
@@ -102,7 +100,7 @@ function init () {
 
   const gltfLoader = new GLTFLoader()
 
-  gltfLoader.load(modelUrl, (gltf) => {
+  gltfLoader.load(modelPath, (gltf) => {
     const root = gltf.scene
 
     scene.add(root)
@@ -203,19 +201,19 @@ function init () {
 
     // initially scale model default unit to meters (three.js standard unit):
 
-    if (urlParams.get('scale') === 'mm') {
+    if (modelScale === 'mm') {
       modelSelect.options[0].selected = true
       initialXLength = boxXLength / 1000
       initialYLength = boxYLength / 1000
       initialZLength = boxZLength / 1000
       initialGridCellSize = initialGridCellSize / 1000
-    } else if (urlParams.get('scale') === 'cm') {
+    } else if (modelScale === 'cm') {
       modelSelect.options[1].selected = true
       initialXLength = boxXLength / 100
       initialYLength = boxYLength / 100
       initialZLength = boxZLength / 100
       initialGridCellSize = initialGridCellSize / 100
-    } else if (urlParams.get('scale') === 'm') {
+    } else if (modelScale === 'm') {
       modelSelect.options[5].selected = true
       initialXLength = boxXLength
       initialYLength = boxYLength

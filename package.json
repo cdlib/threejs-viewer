@@ -9,8 +9,8 @@
     "copy-models": "echo Copying model files from /models to /dist/models ... && copyfiles --error models/**/* dist && echo done.",
     "clean": "del dist --silent",
     "watch": "onchange -i js/*.js -- npm run jslint",
-    "parcel-dev": "parcel index.html --no-cache",
-    "parcel-build": "parcel build index.html --public-url . --no-cache --no-source-maps",
+    "parcel-dev": "parcel *.html --no-cache",
+    "parcel-build": "parcel build *.html --public-url . --no-cache --no-source-maps",
     "jslint": "standard js/*.js --verbose | snazzy || exit 0",
     "jsfix": "standard js/*.js --fix --verbose | snazzy || exit 0 && echo Standard did not find any javascript issues to fix",
     "publish": "gh-pages -d dist"

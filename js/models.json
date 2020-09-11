@@ -51,6 +51,62 @@
       "url": "https://poly.google.com/view/196c4VRe6Ch",
       "dimensions": [],
       "scale": ""
+    },
+    {
+      "name": "Basket 005",
+      "institution": "UC Merced",
+      "path": "models/baskets/005.gltf",
+      "url": "https://nuxeo.cdlib.org/nuxeo/nxpath/default/asset-library/UCM/Basket2Bytes/3D/005@view_documents?tabIds=%3A&conversationId=0NXMAIN2",
+      "dimensions": [],
+      "scale": ""
+    },
+    {
+      "name": "Basket 010",
+      "institution": "UC Merced",
+      "path": "models/baskets/010.gltf",
+      "url": "https://nuxeo.cdlib.org/nuxeo/nxpath/default/asset-library/UCM/Basket2Bytes/3D/010@view_documents?tabIds=%3A&conversationId=0NXMAIN2",
+      "dimensions": [],
+      "scale": ""
+    },
+    {
+      "name": "Basket 011",
+      "institution": "UC Merced",
+      "path": "models/baskets/011Obj.gltf",
+      "url": "https://nuxeo.cdlib.org/nuxeo/nxpath/default/asset-library/UCM/Basket2Bytes/3D/011@view_documents?tabIds=%3A&conversationId=0NXMAIN2",
+      "dimensions": [],
+      "scale": ""
+    },
+    {
+      "name": "Basket 012-sd",
+      "institution": "UC Merced",
+      "path": "models/baskets/12Obj.gltf",
+      "url": "https://nuxeo.cdlib.org/nuxeo/nxpath/default/asset-library/UCM/Basket2Bytes/3D/012-sd@view_documents?tabIds=%3A&conversationId=0NXMAIN2",
+      "dimensions": [],
+      "scale": ""
+    },
+    {
+      "name": "Basket 014",
+      "institution": "UC Merced",
+      "path": "models/baskets/014Obj.gltf",
+      "url": "https://nuxeo.cdlib.org/nuxeo/nxpath/default/asset-library/UCM/Basket2Bytes/3D/014@view_documents?tabIds=%3A&conversationId=0NXMAIN2",
+      "dimensions": [],
+      "scale": ""
+    },
+    {
+      "name": "Basket 018",
+      "institution": "UC Merced",
+      "path": "models/baskets/018.gltf",
+      "url": "https://nuxeo.cdlib.org/nuxeo/nxpath/default/asset-library/UCM/Basket2Bytes/3D/018@view_documents?tabIds=%3A&conversationId=0NXMAIN2",
+      "dimensions": [],
+      "scale": ""
+    },
+    {
+      "name": "Basket 019",
+      "institution": "UC Merced",
+      "path": "models/baskets/019Obj.gltf",
+      "url": "https://nuxeo.cdlib.org/nuxeo/nxpath/default/asset-library/UCM/Basket2Bytes/3D/019@view_documents?tabIds=%3A&conversationId=0NXMAIN2",
+      "dimensions": [],
+      "scale": ""
     }
   ]
 }

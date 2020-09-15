@@ -13,7 +13,11 @@
     "parcel-build": "parcel build *.html --public-url . --no-cache --no-source-maps",
     "jslint": "standard js/*.js --verbose | snazzy || exit 0",
     "jsfix": "standard js/*.js --fix --verbose | snazzy || exit 0 && echo Standard did not find any javascript issues to fix",
-    "publish": "gh-pages -d dist"
+    "publish": "gh-pages -d dist",
+    "togltf": "run-s gltf:*",
+    "gltf:fromobj": "obj2gltf -i OBJ/$FILENAME.obj -o OBJ/temp.gltf",
+    "gltf:compress": "gltf-pipeline -i OBJ/temp.gltf -o models/baskets/$FILENAME.gltf -d -s",
+    "gltf:removetemp": "del OBJ/temp.gltf"
   },
   "repository": {
     "type": "git",
@@ -28,7 +32,9 @@
     "copyfiles": "^2.3.0",
     "del-cli": "^3.0.1",
     "gh-pages": "^3.1.0",
+    "gltf-pipeline": "^3.0.0",
     "npm-run-all": "^4.1.5",
+    "obj2gltf": "^3.1.0",
     "onchange": "^7.0.2",
     "parcel-bundler": "^1.12.4",
     "sass": "^1.26.9",

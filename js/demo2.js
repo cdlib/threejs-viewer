@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { modelMetadata, modelPath } from './routing.js'
@@ -101,6 +102,11 @@ function init () {
   }
 
   const gltfLoader = new GLTFLoader()
+
+  const dracoLoader = new DRACOLoader()
+  dracoLoader.setDecoderPath('draco/')
+  dracoLoader.preload()
+  gltfLoader.setDRACOLoader(dracoLoader)
 
   gltfLoader.load(modelPath, (gltf) => {
     const root = gltf.scene

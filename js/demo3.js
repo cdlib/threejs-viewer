@@ -3,7 +3,7 @@ import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import CameraControls from 'camera-controls'
 import * as holdEvent from 'hold-event'
-import { urlParams, modelMetadata, modelPath, modelScale } from './routing.js'
+import { urlParams, modelMetadata, modelName, modelInstitution, modelPath, modelScale } from './routing.js'
 
 CameraControls.install({ THREE: THREE })
 
@@ -11,6 +11,13 @@ const container = document.querySelector('#demo3')
 
 function init () {
   modelMetadata()
+
+  /* Page Headings */
+
+  const institutionHeading = document.querySelector('#institutionheading')
+  const nameHeading = document.querySelector('#nameheading')
+  institutionHeading.innerText = modelInstitution
+  nameHeading.innerText = modelName
 
   /* Camera, Scene, and Renderer */
 

@@ -39,6 +39,11 @@ header {
   }
 }
 
+#prototypelink {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .debuglink {
   font-size: 0.8rem;
 }

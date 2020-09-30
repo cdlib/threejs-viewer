@@ -60,7 +60,7 @@ function init () {
     const delta = clock.getDelta()
     const hasControlsUpdated = cameraControls.update(delta)
 
-    requestAnimationFrame(anim)
+    requestAnimationFrame(anim) // eslint-disable-line no-undef
 
     if (hasControlsUpdated) {
       renderer.render(scene, camera)

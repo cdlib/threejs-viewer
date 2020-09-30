@@ -1,4 +1,4 @@
-import './intro.js'
-import './demo1.js'
-import './demo2.js'
-import './demo3.js'
+import './currentviewer.js'
+import './hello.js'
+import './initialviewer.js'
+import './modellinks.js'

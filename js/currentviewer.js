@@ -19,7 +19,7 @@ function init () {
   institutionHeading.innerText = modelInstitution
   nameHeading.innerText = modelName
 
-  /* Camera, Scene, and Renderer */
+  /* Define Camera and Renderer */
 
   const scene = new THREE.Scene()
 
@@ -39,33 +39,20 @@ function init () {
 
   container.appendChild(renderer.domElement)
 
-  /* Camera Controls */
-
-  const cameraControls = new CameraControls(camera, renderer.domElement)
-
   const clock = new THREE.Clock()
+
+  function render () {
+    renderer.render(scene, camera)
+  }
 
   function resizeContainer () {
     camera.aspect = container.clientWidth / container.clientHeight
     camera.updateProjectionMatrix()
     renderer.setSize(container.clientWidth, container.clientHeight)
-    renderer.render(scene, camera)
+    render()
   }
 
   window.addEventListener('resize', resizeContainer)
-
-  renderer.render(scene, camera);
-
-  (function anim () {
-    const delta = clock.getDelta()
-    const hasControlsUpdated = cameraControls.update(delta)
-
-    requestAnimationFrame(anim) // eslint-disable-line no-undef
-
-    if (hasControlsUpdated) {
-      renderer.render(scene, camera)
-    }
-  })()
 
   /* Lights */
 
@@ -74,19 +61,6 @@ function init () {
   scene.add(light)
 
   renderer.physicallyCorrectLights = true
-
-  /* Light Intensity Control */
-
-  const intensitySlider = document.querySelector('#intensity')
-
-  function updateIntensity () {
-    light.intensity = intensitySlider.value
-    renderer.render(scene, camera)
-  }
-
-  intensitySlider.addEventListener('input', updateIntensity)
-
-  updateIntensity()
 
   // Auto camera positioning with GLTF loader for displaying models at similar size in viewport. Adapted from: https://threejsfundamentals.org/threejs/lessons/threejs-load-gltf.html:
 
@@ -125,6 +99,8 @@ function init () {
     frameArea(boxSize * 1, boxSize, boxCenter, camera)
 
     /* Camera Controls */
+
+    const cameraControls = new CameraControls(camera, renderer.domElement)
 
     cameraControls.fitTo(box)
     cameraControls.rotateTo(30 * THREE.Math.DEG2RAD, 80 * THREE.Math.DEG2RAD)
@@ -318,7 +294,7 @@ function init () {
         scene.add(gridY)
         scene.remove(gridX)
       }
-      renderer.render(scene, camera)
+      render()
     }
 
     function removeGrids () {
@@ -343,6 +319,34 @@ function init () {
 
     gridXRadioButton.addEventListener('change', gridToggle)
     gridYRadioButton.addEventListener('change', gridToggle)
+
+    /* Render Scene and Camera */
+
+    render();
+
+    (function anim () {
+      const delta = clock.getDelta()
+      const updated = cameraControls.update(delta)
+
+      window.requestAnimationFrame(anim)
+
+      if (updated) {
+        render()
+      }
+    })()
+
+    /* Light Intensity Control */
+
+    const intensitySlider = document.querySelector('#intensity')
+
+    function updateIntensity () {
+      light.intensity = intensitySlider.value
+      render()
+    }
+
+    intensitySlider.addEventListener('input', updateIntensity)
+
+    updateIntensity()
   })
 
   /* Fullscreen Control */

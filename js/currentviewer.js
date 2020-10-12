@@ -1,16 +1,44 @@
-import * as THREE from 'three'
-import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import CameraControls from 'camera-controls'
 import * as holdEvent from 'hold-event'
 import { urlParams, modelMetadata, modelName, modelInstitution, modelPath, modelScale } from './routing.js'
 
-CameraControls.install({ THREE: THREE })
-
 const container = document.querySelector('#demo3')
 
-function init () {
+const fetchModel = async function () {
+  const response = await fetch(modelPath)
+
+  if (!response.ok) {
+    const message = `HTTP error status: ${response.status}`
+    throw new Error(message)
+  }
+
+  const modelJson = await response.json()
+
+  let THREE
+  let GLTFLoader
+  let DRACOLoader = ''
+
+  if (modelJson.asset === undefined || modelJson.asset.version[0] < 2) {
+    console.log('this glTF is less than version 2')
+    THREE = await import('three-v86')
+    GLTFLoader = await import('./GLTFLoader1/GLTFLoader1.js')
+  } else {
+    console.log('this glTF is at least version 2')
+    THREE = await import('three')
+    GLTFLoader = await import('three/examples/jsm/loaders/GLTFLoader')
+    DRACOLoader = await import('three/examples/jsm/loaders/DRACOLoader')
+  }
+  return [THREE, GLTFLoader, DRACOLoader]
+}
+
+async function init () {
   modelMetadata()
+
+  const [THREE, { GLTFLoader }, { DRACOLoader }] = await fetchModel()
+
+  console.log('Three.js version: ' + THREE.REVISION)
+
+  CameraControls.install({ THREE: THREE })
 
   /* Page Headings */
 
@@ -64,9 +92,14 @@ function init () {
 
   // Auto camera positioning with GLTF loader for displaying models at similar size in viewport. Adapted from: https://threejsfundamentals.org/threejs/lessons/threejs-load-gltf.html:
 
+  function degToRad (degrees) {
+    var pi = Math.PI
+    return degrees * (pi / 180)
+  }
+
   function frameArea (sizeToFitOnScreen, boxSize, boxCenter, camera) {
     const halfSizeToFitOnScreen = sizeToFitOnScreen * 0.5
-    const halfFovY = THREE.MathUtils.degToRad(camera.fov * 0.5)
+    const halfFovY = degToRad(camera.fov * 0.5)
     const distance = halfSizeToFitOnScreen / Math.tan(halfFovY)
 
     const direction = (new THREE.Vector3())
@@ -82,10 +115,12 @@ function init () {
 
   const gltfLoader = new GLTFLoader()
 
-  const dracoLoader = new DRACOLoader()
-  dracoLoader.setDecoderPath('draco/')
-  dracoLoader.preload()
-  gltfLoader.setDRACOLoader(dracoLoader)
+  if (THREE.REVISION > 86) {
+    const dracoLoader = new DRACOLoader()
+    dracoLoader.setDecoderPath('draco/')
+    dracoLoader.preload()
+    gltfLoader.setDRACOLoader(dracoLoader)
+  }
 
   gltfLoader.load(modelPath, (gltf) => {
     const root = gltf.scene

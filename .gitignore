@@ -1,6 +1,7 @@
 .DS_Store
 .publish
 dist
+js/GLTFLoader1/GLTFLoader1.js
 models
 node_modules
 OBJ

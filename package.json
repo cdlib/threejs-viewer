@@ -4,8 +4,9 @@
   "description": "Experiments with using three.js as a object viewer",
   "main": "./js/index.js",
   "scripts": {
-    "start": "run-p copy-models copy-draco parcel-dev watch --silent",
-    "build": "run-s clean copy-models copy-draco parcel-build --silent",
+    "start": "run-p assemble-gltfloader1 copy-models copy-draco parcel-dev watch --silent",
+    "build": "run-s clean assemble-gltfloader1 copy-models copy-draco parcel-build --silent",
+    "assemble-gltfloader1": "echo Assembling glTF v.1 loader ... && concat -o js/GLTFLoader1/GLTFLoader1.js js/GLTFLoader1/GLTFLoader1-prepend.js node_modules/three-v86/examples/js/loaders/GLTFLoader.js js/GLTFLoader1/GLTFLoader1-append.js && echo done.",
     "copy-models": "echo Copying model files from /models to /dist/models ... && copyfiles --error models/**/* dist && echo done.",
     "copy-draco": "echo Copying draco files from /node_modules/three/examples/js/libs/draco to /dist/draco ... && copyfiles -f --error node_modules/three/examples/js/libs/draco/**/* dist/draco && echo done.",
     "clean": "del dist --silent",
@@ -30,6 +31,7 @@
   },
   "homepage": "https://github.com/cdlib/threejs-viewer#readme",
   "devDependencies": {
+    "concat": "^1.0.3",
     "copyfiles": "^2.3.0",
     "del-cli": "^3.0.1",
     "gh-pages": "^3.1.0",
@@ -45,6 +47,12 @@
   "dependencies": {
     "camera-controls": "^1.22.1",
     "hold-event": "0.0.1",
-    "three": "^0.117.1"
+    "three": "^0.117.1",
+    "three-v86": "npm:three@0.86.0"
+  },
+  "standard": {
+    "globals": [
+      "fetch"
+    ]
   }
 }

@@ -113,7 +113,33 @@ async function init () {
     camera.updateProjectionMatrix()
   }
 
-  const gltfLoader = new GLTFLoader()
+  /* Model Loading Status */
+
+  const loadingCanvas = document.querySelector('.container canvas')
+  const loadingProgress = document.querySelector('#progressbar')
+  const loadingError = document.querySelector('#loaderror')
+  const manager = new THREE.LoadingManager()
+
+  manager.onProgress = function (url, itemsLoaded, itemsTotal) {
+    loadingProgress.hidden = false
+    loadingCanvas.hidden = true
+    const loadValue = Math.round(itemsLoaded / itemsTotal * 100)
+    loadingProgress.value = loadValue
+    loadingProgress.innerText = 'Model ' + loadValue + '% loaded'
+  }
+
+  manager.onLoad = function () {
+    setTimeout(function () {
+      loadingProgress.hidden = true
+      loadingCanvas.hidden = false
+    }, 1000)
+  }
+
+  manager.onError = function (url) {
+    loadingError.hidden = false
+  }
+
+  const gltfLoader = new GLTFLoader(manager)
 
   if (THREE.REVISION > 86) {
     const dracoLoader = new DRACOLoader()
@@ -408,31 +434,6 @@ async function init () {
       elFullscreen.msRequestFullscreen()
     }
   })
-
-  /* Model Loading Status */
-
-  const loadingCanvas = document.querySelector('.container canvas')
-  const loadingProgress = document.querySelector('#progressbar')
-  const loadingError = document.querySelector('#loaderror')
-
-  THREE.DefaultLoadingManager.onProgress = function (url, itemsLoaded, itemsTotal) {
-    loadingProgress.hidden = false
-    loadingCanvas.hidden = true
-    const loadValue = Math.round(itemsLoaded / itemsTotal * 100)
-    loadingProgress.value = loadValue
-    loadingProgress.innerText = 'Model ' + loadValue + '% loaded'
-  }
-
-  THREE.DefaultLoadingManager.onLoad = function () {
-    setTimeout(function () {
-      loadingProgress.hidden = true
-      loadingCanvas.hidden = false
-    }, 1000)
-  }
-
-  THREE.DefaultLoadingManager.onError = function () {
-    loadingError.hidden = false
-  }
 
   /* Directions Menu */
 

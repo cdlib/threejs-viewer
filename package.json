@@ -19,7 +19,8 @@
     "togltf": "run-s gltf:*",
     "gltf:fromobj": "obj2gltf -i OBJ/$FILENAME.obj -o OBJ/temp.gltf",
     "gltf:compress": "gltf-pipeline -i OBJ/temp.gltf -o models/baskets/$FILENAME.gltf -d -s",
-    "gltf:removetemp": "del OBJ/temp.gltf"
+    "gltf:removetemp": "del OBJ/temp.gltf",
+    "gltf-pipeline": "gltf-pipeline"
   },
   "repository": {
     "type": "git",

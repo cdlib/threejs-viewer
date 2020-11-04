@@ -3,7 +3,7 @@
     {
       "name": "George Washington",
       "institution": "Smithsonian 3D Program",
-      "path": "models/george-washington/george-washington-greenough-statue-(1840)-150k-4096-web.gltf",
+      "path": "https://dj5wl215uj1lm.cloudfront.net/video-test/tests/test-washington.gltf",
       "url": "https://3d.si.edu/object/3d/george-washington:789cf90a-4387-4ac1-9e96-c7d6a7b9d26f",
       "dimensions": [
         {
@@ -15,17 +15,9 @@
       "scale": "mm"
     },
     {
-      "name": "Blue Crab",
-      "institution": "Smithsonian 3D Program",
-      "path": "models/blue-crab/blue-crab-150k-4096-web.gltf",
-      "url": "https://3d.si.edu/object/3d/blue-crab:b0bf6d44-af22-40dc-bd85-7d66255be4a7",
-      "dimensions": [],
-      "scale": "mm"
-    },
-    {
       "name": "Side Chair",
       "institution": "Smithsonian 3D Program",
-      "path": "models/side-chair/pergolesi_side_chair_mesh-100k-web.gltf",
+      "path": "https://dj5wl215uj1lm.cloudfront.net/video-test/tests/test-chair.gltf",
       "url": "https://3d.si.edu/object/3d/side-chair:57d30b85-3549-40dc-99c3-255249867462",
       "dimensions": [],
       "scale": "cm"
@@ -33,7 +25,7 @@
     {
       "name": "Space Shuttle Discovery",
       "institution": "Smithsonian 3D Program",
-      "path": "models/space-shuttle/Orbiter_Space_Shuttle_OV-103_Discovery-150k-4096.gltf",
+      "path": "https://dj5wl215uj1lm.cloudfront.net/video-test/tests/test-shuttle.gltf",
       "url": "https://3d.si.edu/object/3d/orbiter-space-shuttle-ov-103-discovery:d8c636ce-4ebc-11ea-b77f-2e728ce88125",
       "dimensions": [
         {
@@ -45,65 +37,57 @@
       "scale": "m"
     },
     {
-      "name": "Avocado",
-      "institution": "Google Poly",
-      "path": "models/avocado/Avocado.gltf",
-      "url": "https://poly.google.com/view/196c4VRe6Ch",
-      "dimensions": [],
-      "scale": ""
-    },
-    {
       "name": "Basket 005",
       "institution": "UC Merced",
-      "path": "models/baskets/005.gltf",
-      "url": "https://nuxeo.cdlib.org/nuxeo/nxpath/default/asset-library/UCM/Basket2Bytes/3D/005@view_documents?tabIds=%3A&conversationId=0NXMAIN2",
+      "path": "https://dj5wl215uj1lm.cloudfront.net/video-test/Nuxeo/nxfile/default/189ad95a-843b-4f09-9b0b-73c2b4c5b842/threed:transmissionFormats/4/content/transmissionformat-1404844697-50-1000000.gltf",
+      "url": "https://nuxeo.cdlib.org/nuxeo/nxpath/default/asset-library/UCM/Basket2Bytes/3D/019@view_documents?tabIds=%3A&conversationId=0NXMAIN2",
       "dimensions": [],
       "scale": ""
     },
     {
       "name": "Basket 010",
       "institution": "UC Merced",
-      "path": "models/baskets/010.gltf",
-      "url": "https://nuxeo.cdlib.org/nuxeo/nxpath/default/asset-library/UCM/Basket2Bytes/3D/010@view_documents?tabIds=%3A&conversationId=0NXMAIN2",
+      "path": "https://dj5wl215uj1lm.cloudfront.net/video-test/Nuxeo/nxfile/default/462507cb-57c9-4565-abab-7b7d6d9e7dff/threed:transmissionFormats/4/content/transmissionformat-1404844697-50-1000000.gltf",
+      "url": "https://nuxeo.cdlib.org/nuxeo/nxpath/default/asset-library/UCM/Basket2Bytes/3D/019@view_documents?tabIds=%3A&conversationId=0NXMAIN2",
       "dimensions": [],
       "scale": ""
     },
     {
       "name": "Basket 011",
       "institution": "UC Merced",
-      "path": "models/baskets/011Obj.gltf",
-      "url": "https://nuxeo.cdlib.org/nuxeo/nxpath/default/asset-library/UCM/Basket2Bytes/3D/011@view_documents?tabIds=%3A&conversationId=0NXMAIN2",
+      "path": "https://dj5wl215uj1lm.cloudfront.net/video-test/Nuxeo/nxfile/default/8cc7a773-19f8-4906-8a20-a73bbf9949b5/threed:transmissionFormats/4/content/transmissionformat-1404844697-50-1000000.gltf",
+      "url": "https://nuxeo.cdlib.org/nuxeo/nxpath/default/asset-library/UCM/Basket2Bytes/3D/019@view_documents?tabIds=%3A&conversationId=0NXMAIN2",
       "dimensions": [],
       "scale": ""
     },
     {
       "name": "Basket 012-sd",
       "institution": "UC Merced",
-      "path": "models/baskets/12Obj.gltf",
-      "url": "https://nuxeo.cdlib.org/nuxeo/nxpath/default/asset-library/UCM/Basket2Bytes/3D/012-sd@view_documents?tabIds=%3A&conversationId=0NXMAIN2",
+      "path": "https://dj5wl215uj1lm.cloudfront.net/video-test/Nuxeo/nxfile/default/ad17241f-79fc-4c85-894c-cfb4f58d652a/threed:transmissionFormats/4/content/transmissionformat-1404844697-50-1000000.gltf",
+      "url": "https://nuxeo.cdlib.org/nuxeo/nxpath/default/asset-library/UCM/Basket2Bytes/3D/019@view_documents?tabIds=%3A&conversationId=0NXMAIN2",
       "dimensions": [],
       "scale": ""
     },
     {
       "name": "Basket 014",
       "institution": "UC Merced",
-      "path": "models/baskets/014Obj.gltf",
-      "url": "https://nuxeo.cdlib.org/nuxeo/nxpath/default/asset-library/UCM/Basket2Bytes/3D/014@view_documents?tabIds=%3A&conversationId=0NXMAIN2",
+      "path": "https://dj5wl215uj1lm.cloudfront.net/video-test/Nuxeo/nxfile/default/ced04164-69e0-4e9c-9845-9e4e0c56f6e3/threed:transmissionFormats/4/content/transmissionformat-1404844697-50-1000000.gltf",
+      "url": "https://nuxeo.cdlib.org/nuxeo/nxpath/default/asset-library/UCM/Basket2Bytes/3D/019@view_documents?tabIds=%3A&conversationId=0NXMAIN2",
       "dimensions": [],
       "scale": ""
     },
     {
       "name": "Basket 018",
       "institution": "UC Merced",
-      "path": "models/baskets/018.gltf",
-      "url": "https://nuxeo.cdlib.org/nuxeo/nxpath/default/asset-library/UCM/Basket2Bytes/3D/018@view_documents?tabIds=%3A&conversationId=0NXMAIN2",
+      "path": "https://dj5wl215uj1lm.cloudfront.net/video-test/Nuxeo/nxfile/default/f2ea2d46-545c-4398-aa23-b20e228e7808/threed:transmissionFormats/4/content/transmissionformat-1404844697-50-1000000.gltf",
+      "url": "https://nuxeo.cdlib.org/nuxeo/nxpath/default/asset-library/UCM/Basket2Bytes/3D/019@view_documents?tabIds=%3A&conversationId=0NXMAIN2",
       "dimensions": [],
       "scale": ""
     },
     {
       "name": "Basket 019",
       "institution": "UC Merced",
-      "path": "models/baskets/019Obj.gltf",
+      "path": "https://dj5wl215uj1lm.cloudfront.net/video-test/Nuxeo/nxfile/default/f49e1cb8-0d9c-4dd8-8959-6eb7320a5a41/threed:transmissionFormats/4/content/transmissionformat-1404844697-50-1000000.gltf",
       "url": "https://nuxeo.cdlib.org/nuxeo/nxpath/default/asset-library/UCM/Basket2Bytes/3D/019@view_documents?tabIds=%3A&conversationId=0NXMAIN2",
       "dimensions": [],
       "scale": ""

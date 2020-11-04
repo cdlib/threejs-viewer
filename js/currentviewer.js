@@ -425,16 +425,22 @@ async function init () {
 
     /* Light Intensity Control */
 
-    const intensitySlider = document.querySelector('#intensity')
-
     function updateIntensity () {
-      light.intensity = intensitySlider.value
+      light.intensity = intensityRange.value
       render()
     }
 
-    intensitySlider.addEventListener('input', updateIntensity)
+    const intensityLabel = document.querySelector('#intensitylabel')
+    const intensityRange = document.querySelector('#intensityrange')
 
-    updateIntensity()
+    if (isLegacyThree === true) {
+      intensityLabel.hidden = true
+      intensityRange.hidden = true
+    } else {
+      intensityRange.addEventListener('input', updateIntensity)
+
+      updateIntensity()
+    }
   }
 
   if (isLegacyThree === true) {

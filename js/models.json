@@ -91,6 +91,30 @@
       "url": "https://nuxeo.cdlib.org/nuxeo/nxpath/default/asset-library/UCM/Basket2Bytes/3D/019@view_documents?tabIds=%3A&conversationId=0NXMAIN2",
       "dimensions": [],
       "scale": ""
+    },
+    {
+      "name": "Basket 038",
+      "institution": "UC Merced",
+      "path": "https://dj5wl215uj1lm.cloudfront.net/video-test/Nuxeo/nxfile/default/da35050f-aad8-4c16-bb91-4f09c871c9ea/threed:transmissionFormats/0/content/transmissionformat-741753566-100-1000000.gltf",
+      "url": "https://nuxeo.cdlib.org/nuxeo/nxpath/default/asset-library/UCM/Basket2Bytes/3D/038@view_documents?tabIds=%3A&conversationId=0NXMAIN",
+      "dimensions": [],
+      "scale": ""
+    },
+    {
+      "name": "Basket 041",
+      "institution": "UC Merced",
+      "path": "https://dj5wl215uj1lm.cloudfront.net/video-test/Nuxeo/nxfile/default/928b0a1c-c9e7-4e15-9bb2-e6ecb34fba43/threed:transmissionFormats/0/content/transmissionformat-741753566-100-1000000.gltf",
+      "url": "https://nuxeo.cdlib.org/nuxeo/nxpath/default/asset-library/UCM/Basket2Bytes/3D/041@view_documents?tabIds=%3A&conversationId=0NXMAIN",
+      "dimensions": [],
+      "scale": ""
+    },
+    {
+      "name": "Basket 059",
+      "institution": "UC Merced",
+      "path": "https://dj5wl215uj1lm.cloudfront.net/video-test/Nuxeo/nxfile/default/7c029a5e-96f9-4eea-bc5c-03c40f53917d/threed:transmissionFormats/0/content/transmissionformat-741753566-100-1000000.gltf",
+      "url": "https://nuxeo.cdlib.org/nuxeo/nxpath/default/asset-library/UCM/Basket2Bytes/3D/059@view_documents?tabIds=%3A&conversationId=0NXMAIN",
+      "dimensions": [],
+      "scale": ""
     }
   ]
 }

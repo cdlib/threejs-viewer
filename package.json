@@ -48,7 +48,7 @@
   "dependencies": {
     "camera-controls": "^1.22.1",
     "hold-event": "0.0.1",
-    "three": "^0.117.1",
+    "three": "^0.125.0",
     "three-v86": "npm:three@0.86.0"
   },
   "standard": {

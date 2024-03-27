@@ -4,6 +4,8 @@ Experiments with using [three.js](https://threejs.org) as an object viewer.
 
 View at: [https://cdlib.github.io/threejs-viewer](https://cdlib.github.io/threejs-viewer)
 
+**This repository is no longer used or maintained and is now archived.**
+
 ## Running It Yourself
 
 Requires Node, npm.
